@@ -27,6 +27,7 @@ kerberos_kdc_realms_kprop_acl:
     - template: jinja
     - user: root
     - group: {{ kerberos.get('krb5:root_group', 'root') }}
+    - makedirs: True
     - mode: 0644
     - require_in:
       - file: kerberos_kdc_realms_kadm5_acl
@@ -43,6 +44,7 @@ kerberos_kdc_realms_kadm5_acl:
     - template: jinja
     - user: root
     - group: {{ kerberos.get('krb5:root_group', 'root') }}
+    - makedirs: True
     - mode: 0644
     - require_in:
       - service: kerberos_kdc_service
